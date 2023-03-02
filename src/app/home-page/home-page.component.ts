@@ -24,14 +24,12 @@ export class HomePageComponent{
 
   onSubmitForm(form: NgForm) {
     console.log(form.value);
-    console.log("COUCOU");
 
     const speed = form.value.speed;
     const distance = form.value.distance;
     const nbstops = form.value.nbStops;
     const timestops = form.value.timeStop;
 
-    console.log(speed, distance, nbstops, timestops);
     this.soapService.calculDuration(speed, distance, nbstops, timestops).pipe(
       map(value => this.resultat = value)
     ).subscribe();

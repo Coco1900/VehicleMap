@@ -1,0 +1,14 @@
+<div class="map-container">
+    <div class="map-frame">
+        <div id="search">
+          <label>Depart</label>
+            <input type="text" [(ngModel)]="this.depart" >
+
+            <label>Arrivée</label>
+            <input type="text" [(ngModel)]="this.arrive"  >
+
+            <button (click)="searchs()">Valider</button>
+        </div>
+      <div id="map"></div>
+    </div>
+  </div>
