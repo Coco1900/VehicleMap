@@ -1,0 +1,25 @@
+.container2{
+    display: flex;
+    flex-direction: row;
+}
+
+article{
+    width: 30em;
+}
+
+.card{
+    margin: 1em;
+    padding: 2.5em;
+    justify-content: space-between;
+}
+
+label{
+    display: flex;
+    align-self: flex-start;
+}
+
+input{
+    background-color: #BFD4BD;
+    border-radius: 50px;
+    padding: 1em;
+}

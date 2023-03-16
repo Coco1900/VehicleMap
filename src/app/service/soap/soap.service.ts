@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class SoapService {
 
-  private uri = 'http://localhost:8000';
+  private uri = 'https://vehicle-map-soap-i2hy.vercel.app/';
   private options = { responseType: 'text' as 'json' };
 
   constructor(private http: HttpClient) { }

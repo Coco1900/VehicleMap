@@ -1,3 +1,17 @@
+<form>
+    <mat-form-field>
+      <mat-select placeholder="My vehicle" [(ngModel)]="selectedValue" name="vehicle">
+        <mat-option >None</mat-option>
+        <mat-option *ngFor="let vehicle of myListVehicle" (click)="selectVehicle(vehicle)" [value]="[vehicle.naming.model, vehicle.connectors[0].time]">
+          Marque : {{vehicle.naming.make}}
+          Modèle : {{vehicle.naming.model}}
+          Autonomie : {{vehicle.range.chargetrip_range.best}} Km
+          Temps de recharge : {{vehicle.connectors[0].time}} Minutes
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+</form>
 <div class="map-container">
     <div class="map-frame">
         <div id="search">

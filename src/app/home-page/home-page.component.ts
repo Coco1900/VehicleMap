@@ -1,8 +1,9 @@
 import { splitNsName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import {SoapMethod} from 'soap'
+import { InfoService } from '../service/infos/info.service';
 import { SoapService } from '../service/soap/soap.service';
 
 @Component({
@@ -10,33 +11,25 @@ import { SoapService } from '../service/soap/soap.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent{
+export class HomePageComponent implements OnInit{
 
 
-  speed!: number;
-  distance!: number;
-  nbstops!: number;
-  timestop!: number;
+  autonomy$!: Observable<number | null>;
+  tempsTrajet$!: Observable<number | null>;
+  distance$!: Observable<number | null>;
+  nbStops$!: Observable<number | null>;
 
-  resultat!: number;
+  timeStop$!: Observable<number | null>;
 
-  constructor(private soapService: SoapService) { }
+  constructor(private soapService: SoapService, private infoService: InfoService) { }
 
-  onSubmitForm(form: NgForm) {
-    console.log(form.value);
-
-    const speed = form.value.speed;
-    const distance = form.value.distance;
-    const nbstops = form.value.nbStops;
-    const timestops = form.value.timeStop;
-
-    this.soapService.calculDuration(speed, distance, nbstops, timestops).pipe(
-      map(value => this.resultat = value)
-    ).subscribe();
+  ngOnInit(){
+    this.tempsTrajet$ = this.infoService.tempsTrajet$;
+    this.timeStop$ = this.infoService.timeStop$;
+    this.distance$ = this.infoService.distance$;
+    this.nbStops$ = this.infoService.nbStops$;
+    this.autonomy$ = this.infoService.autonomy$;
   }
-
-  
-
-  
+ 
 
 }

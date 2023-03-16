@@ -1,24 +1,33 @@
 <article>
-    <form #calculForm="ngForm" (ngSubmit)="onSubmitForm(calculForm)">
-    
-        <label for="distanceInput">Distance en km</label>
-        <input id="distanceInput" name="distance" type="number" [(ngModel)]="distance">
-        
-        <label for="vitesseInput">Vitesse en km/h</label>
-        <input id="vitesseInput" name="speed" type="number" [(ngModel)]="speed">
-        
-        <label for="nbStopsInput">Nombre d'arret</label>
-        <input id="nbStopsInput" name="nbStops" type="number" [(ngModel)]="nbstops">
-        
-        <label for="timeStopsInput">Temps pour une recharge en h</label>
-        <input id="timeStopsInput" name="timeStop" type="number" [(ngModel)]="timestop">
-        
-        <button type="submit">Calculer</button>
-    </form>
+  
+        <div class="card">
 
-    <div *ngIf="resultat">
-        <hr>
-        <p>Resultat : {{ resultat }}</p>
+            <label for="distanceInput">Distance en km</label>
+            <input matInput id="distanceInput" name="distance" value="{{distance$ | async}}" readonly>
+        </div>
+         
+        
+        <div class="card">
+            <label for="nbStopsInput">Nombre d'arret</label>
+            <input matInput id="nbStopsInput" name="nbStops" value="{{nbStops$ | async}}" readonly>
+        </div>
+        
+        
+        <div class="card">
+            <label for="timeStopsInput">Temps pour une recharge en minutes</label>
+            <input  matInput id="timeStopsInput" name="timeStop"  value="{{timeStop$ | async | hours}}" readonly>
+        </div>
+
+        <div class="card">
+            <label for="autonomy">Autonomie de la voiture en KM</label>
+            <input  matInput id="autonomy" name="autonomy"  value="{{autonomy$ | async}}" readonly>
+        </div>
+        
+
+    <div *ngIf="tempsTrajet$" class="card">
+        
+        <label for="durationInput">Temps de trajet</label>
+        <input id="durationInput" name="duration"  value="{{tempsTrajet$ | async | hours}}" readonly>
     </div>
 
 </article>

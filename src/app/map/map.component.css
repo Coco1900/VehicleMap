@@ -1,17 +1,46 @@
 .map-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 30px;
+    justify-content: center;
   }
   
   .map-frame {
     border: 2px solid black;
-    height: 100%;
+    height: fit-content;
   }
   
   #map {
+    min-height: 50em;
+  }
+
+  li {
+
+    border: #444 1px solid;
+  }
+  
+  #formulaire {
+  
+    display: flex;
+    flex-direction: column;
+    width: 18%;
     height: 100%;
+  
+  }
+  
+  #form {
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+  .listVehicule {
+    /*encré a droite*/
+  
+    overflow-x: scroll;
+    /*zone scrollable*/
+    overflow-y: scroll;
+  
+    height: 100em;
+  }
+
+  #search{
+    width: 60em;
   }
