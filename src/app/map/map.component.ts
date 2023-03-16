@@ -179,7 +179,7 @@ export class MapComponent implements AfterViewInit,OnChanges, OnInit {
               this.InfoService.setNbStops(0);
             }
             else{
-              this.InfoService.setNbStops(index.length);
+              this.InfoService.setNbStops(index.length-1);
             }
 
             this.SoapService.calculDuration(100, (summary.totalDistance/ 1000), index.length, this.tempsRecharge).pipe(
