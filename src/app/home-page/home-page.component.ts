@@ -20,6 +20,7 @@ export class HomePageComponent implements OnInit{
   nbStops$!: Observable<number | null>;
 
   timeStop$!: Observable<number | null>;
+  price$!: Observable<number | null>;
 
   constructor(private soapService: SoapService, private infoService: InfoService) { }
 
@@ -29,6 +30,7 @@ export class HomePageComponent implements OnInit{
     this.distance$ = this.infoService.distance$;
     this.nbStops$ = this.infoService.nbStops$;
     this.autonomy$ = this.infoService.autonomy$;
+    this.price$ = this.infoService.price$;
   }
  
 

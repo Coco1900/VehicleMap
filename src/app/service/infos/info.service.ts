@@ -25,6 +25,9 @@ export class InfoService {
   private timeStop: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
   timeStop$: Observable<number | null> = this.timeStop.asObservable();
 
+  private price: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+  price$: Observable<number | null> = this.price.asObservable();
+
 
   
   constructor() { }
@@ -48,6 +51,10 @@ export class InfoService {
 
   setAutonomy(autonomy: number) {
     this.autonomy.next(autonomy);
+  }
+
+  setPrice(price: number) {
+    this.price.next(price);
   }
 
 

@@ -22,6 +22,11 @@
             <label for="autonomy">Autonomie de la voiture en KM</label>
             <input  matInput id="autonomy" name="autonomy"  value="{{autonomy$ | async}}" readonly>
         </div>
+
+        <div class="card">
+            <label for="price">Prix du trajet en €</label>
+            <input  matInput id="price" name="price"  value="{{price$ | async}}" readonly>
+        </div>
         
 
     <div *ngIf="tempsTrajet$" class="card">

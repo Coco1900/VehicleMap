@@ -9,6 +9,7 @@ import { CityService } from '../service/city/city.service';
 import { VehicleService } from '../service/vehicle/vehicle.service';
 import { SoapService } from '../service/soap/soap.service';
 import { InfoService } from '../service/infos/info.service';
+import { PriceService } from '../service/price/price.service';
 
 @Component({
   selector: 'app-map',
@@ -37,7 +38,12 @@ export class MapComponent implements AfterViewInit,OnChanges, OnInit {
   tempsRecharge! : number;
   
 
-  constructor(private Cityservice: CityService, private BorneService: BorneService, private VehicleService: VehicleService, private SoapService: SoapService, private InfoService: InfoService) { 
+  constructor(private Cityservice: CityService, 
+    private BorneService: BorneService, 
+    private VehicleService: VehicleService, 
+    private SoapService: SoapService, 
+    private InfoService: InfoService,
+    private PriceService: PriceService) { 
     this.arrive="";
     this.depart="";
   }
@@ -179,6 +185,8 @@ export class MapComponent implements AfterViewInit,OnChanges, OnInit {
             this.SoapService.calculDuration(100, (summary.totalDistance/ 1000), index.length, this.tempsRecharge).pipe(
               map(value => this.InfoService.setTempsTrajet(value))
             ).subscribe();
+
+            this.PriceService.getPrice(summary.totalDistance/ 1000);
 
             let tableau=[];
     

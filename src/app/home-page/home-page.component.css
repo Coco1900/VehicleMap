@@ -8,8 +8,9 @@ article{
 }
 
 .card{
-    margin: 1em;
-    padding: 2.5em;
+    margin-left: 3em;
+    margin-right: 3em;
+    padding: 1em;
     justify-content: space-between;
 }
 
